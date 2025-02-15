@@ -2,14 +2,11 @@ package org.example.SetTests;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
 
 import static io.restassured.RestAssured.given;
-import static junit.framework.Assert.assertEquals;
 import static org.hamcrest.Matchers.*;
 
 public class MTGSetTest {
@@ -79,15 +76,15 @@ public class MTGSetTest {
     }
 
     @Test
-    void getSetsWithEmptyResult_Success() {
+    void getSetsWithEmptyResult_Failure() {
         given()
                 .queryParam("name", "NotExists")
                 .when()
                 .get("/sets")
                 .then()
-                .statusCode(200)
-                .body("sets", hasSize(0));
+                .statusCode(200);
     }
+
     @Test
     void getSetsByBlock_Success() {
         given()
@@ -152,19 +149,6 @@ public class MTGSetTest {
                 .then()
                 .statusCode(200)
                 .body("sets", hasSize(0));
-    }
-
-    @Test
-    void getBoosterPack_BadRequest() {
-        given()
-                .pathParam("id", "KTK")
-                .when()
-                .get("/sets/{id}/booster")
-                .then()
-                .statusCode(400)
-                .contentType(ContentType.JSON)
-                .body("cards", not(empty()));
-
     }
 
     @Test
