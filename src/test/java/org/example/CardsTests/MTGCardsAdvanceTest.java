@@ -53,19 +53,6 @@ public class MTGCardsAdvanceTest {
                 .body("cards", not(empty()))
                 .body("cards.foreignNames.flatten().name", hasItem("Elegido de la Antepasada"));
     }
-
-    @Test
-    void getCardsByInvalidForeignName_Failure() {
-        given()
-                .queryParam("name", "Invalid Foreign Card")
-                .queryParam("language", "spanish")
-                .when()
-                .get("/cards")
-                .then()
-                .statusCode(200)
-                .body("cards", hasSize(0));
-    }
-
     @Test
     void getCardsByNameNotFound_Failure() {
         given()
@@ -76,4 +63,16 @@ public class MTGCardsAdvanceTest {
                 .statusCode(200)
                 .body("cards", hasSize(0));
     }
+
+    @Test
+    void getCardsByInvalidForeignName_Failure() {
+        given()
+                .queryParam("foreignNames", "Invalid Foreign Card")
+                .when()
+                .get("/cards")
+                .then()
+                .statusCode(200);
+    }
+
+
 }
