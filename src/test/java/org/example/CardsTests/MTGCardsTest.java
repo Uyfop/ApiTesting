@@ -99,7 +99,7 @@ public class MTGCardsTest {
                 .statusCode(200);
     }
     @Test
-    void getCardsWithEmptyResult_Success() {
+    void getCardsWithEmptyResult_Failure() {
         given()
                 .queryParam("name", "NotExists")
                 .when()
