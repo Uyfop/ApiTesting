@@ -1,0 +1,1 @@
+Metody Oznaczone FAILURE -> Oznaczaja ze pomimo złego requesta albo nie istniejacej karty API zwraca 200. Testy te przechodza by nie wyskakiwalo wiele errorow ale kazdy z tych testow powinien być jako failed.
