@@ -4,7 +4,7 @@ import java.util.List;
 
 
 public class MTGCardData {
-    List<String> MTGcardRarities = Arrays.asList(
+    List<String> MTGCardRarities = Arrays.asList(
             "Common",
             "Uncommon",
             "Rare",
@@ -586,10 +586,10 @@ public class MTGCardData {
     );
 
     public List<String> retrieveCardRarities() {
-        return MTGcardRarities;
+        return MTGCardRarities;
     }
 
-    public List<String> retriveCardTypes() {
+    public List<String> retrieveCardTypes() {
         return MTGCardTypes;
     }
 

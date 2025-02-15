@@ -22,7 +22,7 @@ public class MTGTypeTest {
 
     @Test
     void getAllTypes_Success() {
-        List<String> expectedTypes = data.retriveCardTypes();
+        List<String> expectedTypes = data.retrieveCardTypes();
         given()
                 .when()
                 .get("/types")

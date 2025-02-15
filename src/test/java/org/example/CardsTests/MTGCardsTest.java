@@ -133,7 +133,7 @@ public class MTGCardsTest {
 
     @Test
     void getAllCardTypes_Success() {
-        List<String> cardTypes = data.retriveCardTypes();
+        List<String> cardTypes = data.retrieveCardTypes();
         for (String type : cardTypes) {
             System.out.println("Testing card type: " + type);
 
